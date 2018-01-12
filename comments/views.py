@@ -4,6 +4,7 @@ from django.http.response import JsonResponse
 from django.core.paginator import Paginator
 from django.template.loader import render_to_string
 from django.views.decorators.http import require_POST
+from django.contrib.contenttypes.models import ContentType
 
 from comments.models import Comment
 from comments.forms import CommentForm
@@ -24,7 +25,9 @@ def create_comment(request):
     return render(request, 'comments/form.html', {'form': form}, status=400)
 
 
-def get_comments(request, content_type, object_id):
+def get_comments(request, app_label, model, object_id):
+
+    content_type = ContentType.objects.get_by_natural_key(app_label, model)
 
     comments = Comment.objects.filter(
         is_active=True, content_type=content_type, object_id=object_id
