@@ -25,7 +25,8 @@ class CommentAnswer(models.Model):
 
 class Comment(models.Model):
 
-    answer = models.OneToOneField(CommentAnswer, null=True)
+    answer = models.OneToOneField(
+        CommentAnswer, null=True, on_delete=models.SET_NULL)
 
     is_active = models.BooleanField(_('Is active'), default=True)
 
@@ -50,7 +51,7 @@ class Comment(models.Model):
     ip_address = models.GenericIPAddressField(
         _('IP address'), unpack_ipv4=True, blank=True, null=True)
 
-    def __unicode__(self):
+    def __str__(self):
         return ugettext('Comment')
 
     class Meta:
