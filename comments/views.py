@@ -1,14 +1,15 @@
 
 from django.shortcuts import render
 from django.http.response import JsonResponse
-from django.core.paginator import Paginator
 from django.template.loader import render_to_string
 from django.views.decorators.http import require_POST
 from django.contrib.contenttypes.models import ContentType
 
+from pagination import Paginator
+
+
 from comments.models import Comment
 from comments.forms import CommentForm
-
 
 LIST_ITEM_TEMPLATE = 'comments/list_item.html'
 
