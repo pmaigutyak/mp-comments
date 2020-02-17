@@ -1,7 +1,7 @@
 
 from setuptools import setup, find_packages
 
-from comments import __version__
+__version__ = '1.2'
 
 
 with open('requirements.txt') as f:
@@ -15,7 +15,6 @@ setup(
     name='django-mp-comments',
     version=__version__,
     description='Django comments apps',
-    long_description=open('README.md').read(),
     author='Paul Maigutyak',
     author_email='pmaigutyak@gmail.com',
     url=url,

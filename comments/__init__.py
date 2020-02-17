@@ -8,5 +8,3 @@ class CommentsConfig(AppConfig):
 
 
 default_app_config = 'comments.CommentsConfig'
-
-__version__ = '1.2'
